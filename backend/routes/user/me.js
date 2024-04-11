@@ -1,4 +1,4 @@
-import User from "../../models/userModel.js";
+import User from "../../models/user.js";
 
 export default async function me(req, res) {
   try {

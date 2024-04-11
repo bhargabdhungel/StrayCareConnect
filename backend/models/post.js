@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
+const Schema = mongoose.Schema;
 const PostSchema = new Schema(
   {
-    user: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     content: { type: String, required: true },
     imageUrl: { type: String },
     likes: { type: Number,default:0 },
