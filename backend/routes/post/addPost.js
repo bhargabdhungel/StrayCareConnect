@@ -7,9 +7,11 @@ export default async function addPostController(req, res) {
     const base64Image = req.body.image;
     const filename = `postImage/${req.userId}.jpeg`;
 
-    // console.log(req.body);
-    const urlLink = await uploadBase64ToCloudinary(base64Image, filename);
-    const post = await Post.create({
+    var urlLink;
+    if (base64Image !== undefined) {
+      urlLink = await uploadBase64ToCloudinary(base64Image, filename);
+    }
+    await Post.create({
       userId: req.userId,
       content,
       imageUrl: urlLink,
