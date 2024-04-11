@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../../models/user.js";
+import User from "../../models/orgUser.js";
 
 export default async function login(req, res) {
   try {
@@ -10,8 +10,8 @@ export default async function login(req, res) {
     if (!user) {
       return res.status(400).send({
         good: false,
-        message: "User does not exist",
-        path: "signup",
+        message: "Organization does not exist",
+        path: "orgsignup",
       });
     }
 
@@ -23,14 +23,14 @@ export default async function login(req, res) {
       });
     }
 
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ orgId: user._id }, process.env.JWT_SECRET_ORG, {
       expiresIn: "7d",
     });
 
     return res.status(200).send({
       good: true,
-      message: "User logged in successfully",
-      path: "home",
+      message: "Organization logged in successfully",
+      path: "orghome",
       save: { token, username: user.username, email: user.email },
     });
   } catch (err) {
