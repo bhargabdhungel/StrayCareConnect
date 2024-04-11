@@ -33,7 +33,7 @@ export default function SignInSide() {
 
         const resp = await fetchData({
             method: "POST",
-            url: import.meta.env.VITE_LINK + '/auth/signup',
+            url: import.meta.env.VITE_SITELINK + '/auth/signup',
             body: {
                 username: data.get('username'),
                 email: data.get('email'),

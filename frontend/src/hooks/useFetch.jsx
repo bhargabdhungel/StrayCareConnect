@@ -11,7 +11,7 @@ export default function useFetch(run = true, method, params = null, path, body =
         setLoading(true)
         const resp = await fetchData({
           method,
-          url: import.meta.env.VITE_LINK + path,
+          url: import.meta.env.VITE_SITELINK + path,
           token: localStorage.getItem('token'),
           body,
           params
