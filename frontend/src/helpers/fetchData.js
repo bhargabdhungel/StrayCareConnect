@@ -18,7 +18,11 @@ export default async function fetchData({method, url, token, body, params}) {
         localStorage.setItem(key, response.data.save[key]);
       }
     }
-    response.data.status = response.status;
+
+    const status = parseInt(response.data.status);
+    let pair = {[status]: status};
+    response.data = {...response.data, ...pair};
+    // response.data[status] = status;
     if(response.data.message) toast.success(response.data.message)
     return response.data || "Something went wrong";
   } catch (error) {
@@ -27,7 +31,11 @@ export default async function fetchData({method, url, token, body, params}) {
         localStorage.setItem(key, error.response.data.save[key]);
       }
     }
-    error.response.data.status = error.response.status;
+
+    console.log(error)
+    const status = parseInt(error.response.status)
+    let pair = {[status]: status};
+    error.response.data = {...error.response.data, ...pair};
 
     if(error.response.data.message) toast.error(error.response.data.message)
     return error.response.data || "Something went wrong";
