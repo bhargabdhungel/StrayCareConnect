@@ -1,5 +1,5 @@
 import axios from "axios";
-import toast from 'react-hot-toast'
+import toast from "react-hot-toast";
 
 export default async function fetchData({ method, url, token, body, params }) {
   try {
@@ -18,11 +18,10 @@ export default async function fetchData({ method, url, token, body, params }) {
         localStorage.setItem(key, response.data.save[key]);
       }
     }
-
     const status = parseInt(response.data.status);
     let pair = { [status]: status };
     response.data = { ...response.data, ...pair };
-    if (response.data.message) toast.success(response.data.message)
+    if (response.data.message) toast.success(response.data.message);
     return response.data || "Something went wrong";
   } catch (error) {
     if (error.response.data.save) {
@@ -31,12 +30,11 @@ export default async function fetchData({ method, url, token, body, params }) {
       }
     }
 
-    console.log(error)
-    const status = parseInt(error.response.status)
+    const status = parseInt(error.response.status);
     let pair = { [status]: status };
     error.response.data = { ...error.response.data, ...pair };
 
-    if (error.response.data.message) toast.error(error.response.data.message)
+    if (error.response.data.message) toast.error(error.response.data.message);
     return error.response.data || "Something went wrong";
   }
 }
