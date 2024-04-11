@@ -22,7 +22,6 @@ export default async function fetchData({ method, url, token, body, params }) {
     const status = parseInt(response.data.status);
     let pair = { [status]: status };
     response.data = { ...response.data, ...pair };
-    // response.data[status] = status;
     if (response.data.message) toast.success(response.data.message)
     return response.data || "Something went wrong";
   } catch (error) {

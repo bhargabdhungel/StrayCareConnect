@@ -42,7 +42,6 @@ export default function SignInSide() {
 
         setLoading(false)
 
-        console.log(resp)
         if (resp.path) navigate('/' + resp.path)
     };
 
