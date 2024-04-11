@@ -4,6 +4,7 @@ export default async function verifyUser(req, res, next) {
   try {
     const token = req.headers.authorization;
     if (!token) {
+      console.log(token);
       return res.status(401).send({
         good: false,
         message: "Unauthorized",
@@ -11,7 +12,7 @@ export default async function verifyUser(req, res, next) {
     }
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      if (!req.userId) {
+      if (!decoded.userId) {
         return res.status(401).send({
           good: false,
           message: "Unauthorized",
