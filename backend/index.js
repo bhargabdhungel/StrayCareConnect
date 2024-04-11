@@ -1,19 +1,21 @@
 import express from "express";
-import { config } from "dotenv";
+import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./database/index.js";
+
+dotenv.config();
+const port = process.env.PORT || 3000;
+
+connectDB();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-config();
-
-connectDB();
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Server is running on port 3000");
 });
