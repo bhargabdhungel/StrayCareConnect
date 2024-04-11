@@ -1,8 +1,19 @@
+import { Route, Routes } from 'react-router-dom'
+import Register from './pages/Register';
+import { Toaster } from 'react-hot-toast'
+import Home from './pages/Home';
+import Login  from './pages/Login';
+
+
 export default function App() {
   return (
-    <div>
-      <h1>My App</h1>
-      <p>Welcome to my app</p>
-    </div>
+    <>
+      <Toaster />
+      <Routes>
+        <Route path='/signup' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/home' element={<Home />} />
+      </Routes>
+    </>
   );
 }
