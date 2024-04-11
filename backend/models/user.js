@@ -8,7 +8,7 @@ const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, required: true, default: false },
-  posts:[{type: Schema.Types.ObjectId,ref:"Post"}]
+  posts: [{ type: Schema.Types.ObjectId, ref: "Post" }],
 });
 
 const user = mongoose.model("User", userSchema);

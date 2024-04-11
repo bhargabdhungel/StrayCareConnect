@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export default async function verifyUser(req, res, next) {
+export default async function verifyOrg(req, res, next) {
   try {
     const token = req.headers.authorization;
     if (!token) {
@@ -10,14 +10,14 @@ export default async function verifyUser(req, res, next) {
       });
     }
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET_ORG);
       if (!req.userId) {
         return res.status(401).send({
           good: false,
           message: "Unauthorized",
         });
       }
-      req.userId = decoded.userId;
+      req.orgId = decoded.orgId;
     } catch (err) {
       return res.status(401).send({
         good: false,
