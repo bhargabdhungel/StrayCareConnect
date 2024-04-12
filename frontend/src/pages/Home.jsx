@@ -6,6 +6,14 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import HomeIcon from "@mui/icons-material/Home";
+import PetsIcon from "@mui/icons-material/Pets";
+import ChatIcon from "@mui/icons-material/Chat";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MenuItem from "../components/Menuitem";
 
 const HomePage = () => {
   const theme = useTheme();
@@ -77,13 +85,24 @@ const HomePage = () => {
                 color: "#ffffff",
               }}
             >
-              <Typography variant="h6" style={{ marginBottom: "20px" }}>
-                Menu Options
-              </Typography>
-              <ul style={{ listStyleType: "none", padding: 0 }}>
-                <li style={{ marginBottom: "10px" }}>Chat</li>
-                <li style={{ marginBottom: "10px" }}>Profile</li>
-              </ul>
+              <MenuItem
+                href="/home"
+                ariaLabel="Home (New unread posts)"
+                primary="Home"
+                icon={<HomeIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/chat"
+                ariaLabel="Chat"
+                primary="Chat"
+                icon={<ChatIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/profile"
+                ariaLabel="Profile"
+                primary="Profile"
+                icon={<AccountCircleIcon sx={{ color: "white" }} />}
+              />
             </Paper>
           </Grid>
         )}

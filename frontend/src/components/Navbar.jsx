@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static">
+          <AppBar position="static" sx={{ backgroundColor: "black" }}>
         <Toolbar>
           {isMobile && (
             <IconButton
@@ -37,8 +37,15 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
           )}
+          {/* Add your image logo here */}
+          <img
+            src="/images/straycarelogo.png"
+            alt="Logo"
+            style={{ height: "40px", marginRight: "10px" }}
+          />
+          {/* Optionally, you can add a Typography component with the site name */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            My Social Media Site
+            StrayCare Connect
           </Typography>
           {/* You can add navigation links or other components here */}
         </Toolbar>
@@ -68,4 +75,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
