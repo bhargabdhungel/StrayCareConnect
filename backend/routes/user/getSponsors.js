@@ -3,7 +3,7 @@ import OrgPost from "../../models/orgPost.js";
 export default async function getSponsors (req, res) {
     try {
         const allSponsors = await OrgPost.find({})
-            .populate("orgUser", "orgname")
+            .populate("orgId", "orgname")
 
         if(!getSponsors){
             return res.status(400).json({
