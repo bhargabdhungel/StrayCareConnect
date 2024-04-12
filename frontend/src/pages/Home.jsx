@@ -14,6 +14,8 @@ import PetsIcon from "@mui/icons-material/Pets";
 import ChatIcon from "@mui/icons-material/Chat";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuItem from "../components/Menuitem";
+import Post from "../components/PostCard";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const HomePage = () => {
   const theme = useTheme();
@@ -25,20 +27,19 @@ const HomePage = () => {
   const sentinelRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const sentinel = entries[0];
-        if (sentinel.isIntersecting && !isLoading) {
-          loadMorePosts();
-        }
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
-      }
-    );
-
+const observer = new IntersectionObserver(
+  (entries) => {
+    const sentinel = entries[0];
+    if (sentinel.isIntersecting && !isLoading) {
+      loadMorePosts();
+    }
+  },
+  {
+    root: null,
+    rootMargin: "0px",
+    threshold: 1.0,
+  }
+);
     if (sentinelRef.current) {
       observer.observe(sentinelRef.current);
     }
@@ -116,21 +117,21 @@ const HomePage = () => {
             }}
           >
             {posts.map((post) => (
-              <Paper
-                key={post.id}
-                style={{
-                  padding: "20px",
-                  marginBottom: "20px",
-                  backgroundColor: "#1e1e1e",
-                  color: "#ffffff",
-                }}
-              >
-                <Typography variant="h6">{post.title}</Typography>
-                <Typography variant="body1">{post.content}</Typography>
-              </Paper>
+              <div key={post.id}>
+                <Post
+                  username="kela"
+                  content={post.content}
+                  likes="10"
+                  comments="10"
+                />
+              </div>
             ))}
             <div ref={sentinelRef}></div>
-            {isLoading && <p>Loading...</p>}
+            {isLoading && (
+              <div style={{ textAlign: "center", marginTop: "20px" }}>
+                <CircularProgress color="inherit" sx={{ color: "#ffffff" }} />
+              </div>
+            )}
           </div>
         </Grid>
       </Grid>
