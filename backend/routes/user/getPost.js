@@ -1,3 +1,5 @@
+import Post from "../../models/post.js";
+
 export default async function getPost(req, res) {
   try {
     const page = parseInt(req.query.page) || 1;

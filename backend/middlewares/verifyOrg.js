@@ -11,7 +11,7 @@ export default async function verifyOrg(req, res, next) {
     }
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET_ORG);
-      if (!req.userId) {
+      if (!decoded.orgId) {
         return res.status(401).send({
           good: false,
           message: "Unauthorized",
