@@ -123,14 +123,103 @@ export default function Landing() {
           </div>
         </div>
       </div>
-      <div className="bg-slate-200">something is here</div>
-      <img
-        src="https://d339b5nop2tkmp.cloudfront.net/assets/homepage/homepage_impact_bg_hills-9672a358aa9bda2720446f5f8b5868f2f7e6ae822a6e81c7175f2844e7e7e521.svg"
-        alt=""
-        style={{ filter: "brightness(0) invert(0)" }} // Change the color using CSS filter
-      />
-      <div>
-        
+      <div className="bg-slate-200 text-custom-bg-dark-secondary py-12">
+        <div className="text-center pb-8">
+          <h1 className="text-4xl md:text-4xl font-bold mb-4 font-sans">
+            Latest From StrayCare Connect
+          </h1>
+        </div>
+        <div className="flex justify-around px-40">
+          <div className="text-center">
+            <div
+              className="card border border-custom-bg-secondary rounded-3xl"
+              style={{ width: "18rem" }}
+            >
+              <img
+                src="/images/catimage.png"
+                className="w-full h-auto rounded-3xl"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title text-xl font-semibold text-custom-bg-special">
+                  The Heartwarming World of Pet Fostering: A Conversation with
+                  Jen
+                </h5>
+                <p className="card-text text-custom-bg-dark-primary font-medium">
+                  Did you know that over 70% of the pets you see listed on
+                  PetRescue each day are actually in foster care, not shelters?
+                </p>
+                <div className="py-2">
+                  <Button secondary>Read this Story </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="text-center">
+            <div
+              className="card border border-custom-bg-secondary rounded-3xl"
+              style={{ width: "18rem" }}
+            >
+              <img
+                src="/images/dogimage.png"
+                className="w-full h-auto rounded-3xl"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title text-xl font-semibold text-custom-bg-special">
+                  The power of sharing: when the community comes together.
+                </h5>
+                <p className="card-text text-custom-bg-dark-primary font-medium">
+                  We’re all on our own unique journey, and some of us are going
+                  through particularly difficult challenges that few others are
+                  aware of.
+                </p>
+                <div className="py-2">
+                  <Button secondary>Read this Story </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="text-center">
+            <div
+              className="card border border-custom-bg-secondary rounded-3xl"
+              style={{ width: "18rem" }}
+            >
+              <img
+                src="/images/dogimage2.png"
+                className="w-full h-auto rounded-3xl"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title text-xl font-semibold text-custom-bg-special">
+                  The Heartwarming World of Pet Fostering: A Conversation with
+                  Jen
+                </h5>
+                <p className="card-text text-custom-bg-dark-primary font-medium">
+                  Did you know that over 70% of the pets you see listed on
+                  PetRescue each day are actually in foster care, not shelters?
+                </p>
+                <div className="py-2">
+                  <Button secondary>Read this Story </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-custom-bg-special flex text-center">
+        <div>
+          <h1 className="text-center ml-28 p-40 text-custom-white-text-active text-3xl md:text-6xl font-bold font-sans">
+            Building A humane
+            <div>Community</div>
+          </h1>
+        </div>
+        <div className="py-20">
+          <img src="/images/hero.png" alt="" width="300px" />
+        </div>
+      </div>
+      <div className="bg-custom-bg-dark-primary text-custom-bg-primary p-7">
+        <div className="mx-40">Copyright © 2024 StrayCare Connect All rights reserved</div>
       </div>
     </div>
   );
