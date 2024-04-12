@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/* Hide scrollbar for Chrome, Brave, and Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

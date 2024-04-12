@@ -11,12 +11,12 @@ import { swipeAtom } from "./store";
 
 function HomeRoutes() {
   return (
-    <>
+    <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/*" element={<Home />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
@@ -54,7 +54,7 @@ export default function App() {
         <Routes>
           <Route path="/signup" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<HomeRoutes />} />
+          <Route path="/home/*" element={<HomeRoutes />} />
           <Route path="/" element={<Landing />} />
         </Routes>
       </div>
