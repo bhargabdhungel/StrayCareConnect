@@ -1,13 +1,13 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../../models/orgUser.js";
+import OrgUser from "../../models/orgUser.js";
 
 export default async function signup(req, res) {
   try {
     const { orgname, email, password } = req.body;
 
-    // check if user already exists
-    const exists = await User.findOne({ email });
+    // check if orguser already exists
+    const exists = await OrgUser.findOne({ email });
     if (exists) {
       return res.status(400).send({
         good: false,
@@ -17,7 +17,7 @@ export default async function signup(req, res) {
     }
 
     // check if orgname already exists
-    const orgnameExists = await User.findOne({ orgname });
+    const orgnameExists = await OrgUser.findOne({ orgname });
     if (orgnameExists) {
       return res.status(400).send({
         good: false,
@@ -25,16 +25,16 @@ export default async function signup(req, res) {
       });
     }
 
-    // create new user
+    // create new orguser
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({
+    const orguser = new OrgUser({
       orgname,
       email,
       password: hashedPassword,
     });
-    await user.save();
+    await orguser.save();
 
-    const token = jwt.sign({ orgId: user._id }, process.env.JWT_SECRET_ORG, {
+    const token = jwt.sign({ orgId: orguser._id }, process.env.JWT_SECRET_ORG, {
       expiresIn: "7d",
     });
 
