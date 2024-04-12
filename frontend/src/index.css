@@ -5,9 +5,9 @@
 }
 
 /* Hide scrollbar for Chrome, Brave, and Edge */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 @tailwind base;
 @tailwind components;

@@ -15,3 +15,8 @@ export const swipeAtom = atom({
   key: "swipeAtom",
   default: "",
 });
+
+export const atTheBottomAtom = atom({
+  key: "atTheBottomAtom",
+  default: false,
+});

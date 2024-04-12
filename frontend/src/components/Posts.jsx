@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import fetchData from "../helpers/fetchData";
 import toast from "react-hot-toast";
+import { useRecoilValue } from "recoil";
+import { atTheBottomAtom } from "../store";
 
 export default function Posts() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
+  const bottom = useRecoilValue(atTheBottomAtom);
 
-  // method, url, token, body, params
+  useEffect(() => {
+    if (bottom) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  }, [bottom]);
 
   useEffect(() => {
     const getData = async (page) => {
@@ -17,8 +24,7 @@ export default function Posts() {
           token: localStorage.getItem("token"),
           params: { page },
         });
-
-        console.log(response);
+        setData((prevData) => [...prevData, ...response.data]);
       } catch (err) {
         toast.error("Check Internet Connection");
       }
@@ -28,7 +34,15 @@ export default function Posts() {
 
   return (
     <div className="bg-red-300 w-full">
-      <h1>Posts</h1>
+      {data.map((post, index) => {
+        return (
+          <div key={index} className="bg-white p-4 m-4 rounded-md">
+            <p>{index}</p>
+            <p>{post.userId.username}</p>
+            <p>{post.content}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

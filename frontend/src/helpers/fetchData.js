@@ -13,8 +13,6 @@ export default async function fetchData({ method, url, token, body, params }) {
       params: params,
     });
 
-    console.log(response.status);
-
     if (response.data.save) {
       for (const key in response.data.save) {
         localStorage.setItem(key, response.data.save[key]);

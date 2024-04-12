@@ -31,7 +31,6 @@ export default function useFetch(
       }
     };
     if (run) getData();
-    else setLoading(false);
   }, [path, method, run, body, params]);
   return { loading, response };
 }

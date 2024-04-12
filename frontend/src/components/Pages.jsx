@@ -6,10 +6,26 @@ import Profile from "./Profile";
 import Donate from "./Donate";
 import Adopt from "./Adopt";
 import Settings from "./Settings";
+import { useRecoilState } from "recoil";
+import { atTheBottomAtom } from "../store";
 
 export default function Pages() {
+  const [bottom, setBottom] = useRecoilState(atTheBottomAtom);
+
   return (
-    <div className="w-2/3 overflow-y-auto">
+    <div
+      className="w-2/3 overflow-y-auto"
+      onScroll={(e) => {
+        if (
+          e.target.scrollTop + e.target.clientHeight + 400 >=
+          e.target.scrollHeight
+        ) {
+          if (!bottom) setBottom(true);
+        } else {
+          if (bottom) setBottom(false);
+        }
+      }}
+    >
       <Routes>
         <Route path="/" element={<Posts />} />
         <Route path="/chat" element={<Chats />} />
