@@ -72,7 +72,7 @@ const Navbar = () => {
                 padding: "20px",
                 textAlign: "center",
                 height: "calc(100vh - 40px)",
-                width: "400px",
+                width: "50vw",
                 boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
                 backgroundColor: "#1e1e1e",
                 color: "#ffffff",
