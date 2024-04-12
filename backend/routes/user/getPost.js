@@ -6,8 +6,8 @@ export default async function getPosts(req, res) {
       .sort({ createdAt: -1 })
       .skip((page - 1) * 10)
       .limit(10)
-      .populate("userId", "username")
-      .populate("comments");
+      .populate("userId", "username");
+
     return res.status(200).json({ data: post, good: true });
   } catch (err) {
     return res.status(500).send({
