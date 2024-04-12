@@ -1,6 +1,7 @@
 /* eslint-disable  */
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
+import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -11,6 +12,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import MenuItem from "../components/Menuitem";
+import HomeIcon from "@mui/icons-material/Home";
+import PetsIcon from "@mui/icons-material/Pets";
+import ChatIcon from "@mui/icons-material/Chat";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -23,7 +29,11 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+      <AppBar
+        position="sticky"
+        style={{ top: 0, zIndex: 1000 }}
+        sx={{ backgroundColor: "black" }}
+      >
         <Toolbar>
           {isMobile && (
             <IconButton
@@ -57,16 +67,36 @@ const Navbar = () => {
             onClick={toggleDrawer}
             onKeyDown={toggleDrawer}
           >
-            <List>
-              {/* Add your sidebar items here */}
-              <ListItem button>
-                <ListItemText primary="Chat" />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Profile" />
-              </ListItem>
-              {/* Add more sidebar items as needed */}
-            </List>
+            <Paper
+              style={{
+                padding: "20px",
+                textAlign: "center",
+                height: "calc(100vh - 40px)",
+                width: "400px",
+                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+                backgroundColor: "#1e1e1e",
+                color: "#ffffff",
+              }}
+            >
+              <MenuItem
+                href="/home"
+                ariaLabel="Home (New unread posts)"
+                primary="Home"
+                icon={<HomeIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/chat"
+                ariaLabel="Chat"
+                primary="Chat"
+                icon={<ChatIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/profile"
+                ariaLabel="Profile"
+                primary="Profile"
+                icon={<AccountCircleIcon sx={{ color: "white" }} />}
+              />
+            </Paper>
           </div>
         </Drawer>
       )}
