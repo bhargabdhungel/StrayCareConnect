@@ -33,13 +33,24 @@ export default function Posts() {
   }, [page]);
 
   return (
-    <div className="bg-red-300 w-full">
+    <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
       {data.map((post, index) => {
+        console.log(post);
+        const uploadDate = new Date(post.createdAt);
+        const time = uploadDate.toLocaleTimeString();
+        const date = uploadDate.toLocaleDateString();
+
         return (
-          <div key={index} className="bg-white p-4 m-4 rounded-md">
+          <div key={index} className="bg-white p-4">
             <p>{index}</p>
             <p>{post.userId.username}</p>
             <p>{post.content}</p>
+            <p>{post.likes} Likes</p>
+            <p>{post.comments?.length} Comments</p>
+            <img src={post.imageUrl} alt="image" />
+            <p>
+              {time}, {date}
+            </p>
           </div>
         );
       })}
