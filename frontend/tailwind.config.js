@@ -5,26 +5,31 @@ export default {
     extend: {
       colors: {
         // black
-        "custom-bg-primary": "#000000",
-        "custom-bg-secondary": "#16181C",
+        "custom-bg-primary": "#FFFEFE",
+        "custom-bg-secondary": "#63AD44",
+        "custom-bg-tertiary": "#5B9D3D",
+
+        "custom-bg-dark-primary": "#2D2D2C",
+        "custom-bg-dark-secondary": "#1E1E1F",
 
         // white
-        "custom-white-text-active": "#EFF3F4",
-        "custom-white-text-hover": "#D7DCDF",
+        "custom-white-text-active": "#FFFEFE",
+        "custom-white-text-hover": "#F5F5F5",
 
-        "custom-search-bg": "#202327",
+        "custom-search-bg": "#",
 
         // blue
-        "custom-button-active": "#1D9BF0",
-        "custom-button-hover": "#2A91D8",
+        "custom-button-active": "#FFFEFE",
+        "custom-button-hover": "#427200",
 
         // white
-        "custom-white-button-active": "#EFF3F4",
-        "custom-white-button-hover": "#D7DCDF",
+        "custom-secondary-button-active": "#FFFEFE",
+        "custom-white-button-hover": "#F5F5F5",
 
         // grey
-        "custom-text-primary": "#E7E9EA",
-        "custom-text-secondary": "#C9CCCF",
+        "custom-text-primary": "#FFFEFE",
+        "custom-text-secondary": "#0B0A0A",
+        "custom-text-tertiary": "#68B405",
       },
     },
   },
