@@ -6,10 +6,13 @@ import Login from "./pages/Login";
 import Landing from "./pages/Landing";
 import Navbar from "./components/Navbar";
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { swipeAtom } from "./store";
 
 export default function App() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const setSwipe = useSetRecoilState(swipeAtom);
   const minSwipeDistance = 50;
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -23,10 +26,10 @@ export default function App() {
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe || isRightSwipe)
-      console.log("swipe", isLeftSwipe ? "left" : "right");
-    if (isLeftSwipe) alert("swipe left");
-    if (isRightSwipe) alert("swipe right");
+    if (isLeftSwipe || isRightSwipe) {
+      if (isLeftSwipe) setSwipe("left");
+      else setSwipe("right");
+    } else setSwipe("");
   };
 
   return (
