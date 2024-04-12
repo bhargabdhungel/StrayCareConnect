@@ -1,7 +1,7 @@
 import Post from "../../models/post.js";
 import uploadBase64ToCloudinary from "../../utils/imageUpload.js";
 
-export default async function addPostController(req, res) {
+export default async function addPost(req, res) {
   try {
     const { content } = req.body;
     const base64Image = req.body.image;
