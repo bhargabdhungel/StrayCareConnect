@@ -9,6 +9,17 @@ import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { swipeAtom } from "./store";
 
+function HomeRoutes() {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
+  );
+}
+
 export default function App() {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -35,7 +46,6 @@ export default function App() {
   return (
     <div>
       <Toaster />
-      <Navbar />
       <div
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -44,7 +54,7 @@ export default function App() {
         <Routes>
           <Route path="/signup" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<HomeRoutes />} />
           <Route path="/" element={<Landing />} />
         </Routes>
       </div>
