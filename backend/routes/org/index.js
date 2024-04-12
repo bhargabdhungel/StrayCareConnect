@@ -36,6 +36,8 @@ router.post("/sponsor", verifyOrg, async (req, res) => {
       monthlyBudget,
       orgId,
     });
+
+    console.log(newPost);
     await newPost.save();
 
     return res.status(201).json({

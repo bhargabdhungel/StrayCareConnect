@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         // black
+
+        "custom-bg-special":"#63AD44",
         "custom-bg-primary": "#FFFEFE",
         "custom-bg-secondary": "#67B944",
         "custom-bg-tertiary": "#5B9D3D",
@@ -18,13 +20,13 @@ export default {
 
         "custom-search-bg": "#",
 
-        // blue
-        "custom-button-active": "#FFFEFE",
-        "custom-button-hover": "#427200",
+        // blue427200
+        "custom-button-active": "#427200",
+        "custom-button-hover": "#0B0A0A",
 
         // white
-        "custom-secondary-button-active": "#FFFEFE",
-        "custom-white-button-hover": "#F5F5F5",
+        "custom-secondary-button-active": "#68B405",
+        "custom-white-button-hover": "#67B944",
 
         // grey
         "custom-text-primary": "#FFFEFE",
