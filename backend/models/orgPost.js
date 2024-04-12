@@ -19,5 +19,5 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-const Post = mongoose.model("OrgPost", postSchema);
-export default Post;
+const OrgPost = mongoose.model("OrgPost", postSchema);
+export default OrgPost;
