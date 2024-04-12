@@ -67,7 +67,7 @@ const HomePage = () => {
   return (
     <div
       style={{
-        padding: "20px",
+        padding: "0px",
         backgroundColor: "#121212",
         minHeight: "100vh",
       }}
