@@ -16,14 +16,20 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuItem from "../components/Menuitem";
 import Post from "../components/PostCard";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import HelpIcon from "@mui/icons-material/Help";
+import GroupIcon from "@mui/icons-material/Group";
+import EmailIcon from "@mui/icons-material/Email";
+import Avatar from "@mui/material/Avatar";
+import axios from "axios";
 const HomePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const sentinelRef = useRef(null);
 
   useEffect(() => {
@@ -51,19 +57,24 @@ const observer = new IntersectionObserver(
     };
   }, [isLoading]);
 
-  const loadMorePosts = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const newPosts = Array.from({ length: 10 }, (_, index) => ({
-        id: posts.length + index,
-        title: `Post ${posts.length + index + 1}`,
-        content: `This is the content of post ${posts.length + index + 1}`,
-      }));
+const loadMorePosts = () => {
+  setIsLoading(true);
+  const nextPage = page + 1; // Increment the page number
+  const apiUrl = `${import.meta.env.VITE_SITELINK}/posts/page/${nextPage}`;
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      const newPosts = response.data; // Assuming the API response contains the new posts
       setPosts((prevPosts) => [...prevPosts, ...newPosts]);
       setIsLoading(false);
-      setPage((prevPage) => prevPage + 1);
-    }, 1500);
-  };
+      setPage(nextPage);
+    })
+    .catch((error) => {
+      console.error("Error fetching posts:", error);
+      setIsLoading(false);
+    });
+};
 
   return (
     <div
@@ -103,6 +114,36 @@ const observer = new IntersectionObserver(
                 ariaLabel="Profile"
                 primary="Profile"
                 icon={<AccountCircleIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/adopt"
+                ariaLabel="Adopt"
+                primary="Adopt"
+                icon={<FavoriteIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/sponsor"
+                ariaLabel="Sponsor"
+                primary="Sponsor"
+                icon={<AttachMoneyIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/support"
+                ariaLabel="Support"
+                primary="Support"
+                icon={<HelpIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/orgs"
+                ariaLabel="NGOs"
+                primary="NGOs"
+                icon={<GroupIcon sx={{ color: "white" }} />}
+              />
+              <MenuItem
+                href="/contact"
+                ariaLabel="Contact"
+                primary="Contact"
+                icon={<EmailIcon sx={{ color: "white" }} />}
               />
             </Paper>
           </Grid>
