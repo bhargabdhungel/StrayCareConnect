@@ -6,7 +6,7 @@ export default {
       colors: {
         // black
         "custom-bg-primary": "#FFFEFE",
-        "custom-bg-secondary": "#63AD44",
+        "custom-bg-secondary": "#67B944",
         "custom-bg-tertiary": "#5B9D3D",
 
         "custom-bg-dark-primary": "#2D2D2C",

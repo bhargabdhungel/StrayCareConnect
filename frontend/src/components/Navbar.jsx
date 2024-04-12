@@ -108,7 +108,7 @@
 
 export default function Navbar() {
   return (
-    <div>
+    <div className="w-full h-[10vh] fixed top-0 bg-custom-bg-secondary">
       <h1>Navbar</h1>
     </div>
   );

@@ -27,6 +27,9 @@
 //   const theme = useTheme();
 //   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+import Menu from "../components/Menu";
+import Pages from "../components/Pages";
+
 //   const [posts, setPosts] = useState([]);
 //   const [isLoading, setIsLoading] = useState(false);
 //   const [page, setPage] = useState(0);
@@ -179,8 +182,9 @@
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="w-full h-[90vh] relative top-[10vh] flex">
+      <Menu />
+      <Pages />
     </div>
   );
 }
