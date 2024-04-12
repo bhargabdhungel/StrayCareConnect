@@ -1,4 +1,5 @@
-export default async function getPost(req, res) {
+import Post from "../../models/post.js";
+export default async function getPosts(req, res) {
   try {
     const page = parseInt(req.query.page) || 1;
     const post = await Post.find({})
@@ -7,7 +8,6 @@ export default async function getPost(req, res) {
       .limit(10)
       .populate("userId", "username")
       .populate("comments");
-
     return res.status(200).json({ data: post, good: true });
   } catch (err) {
     return res.status(500).send({

@@ -17,7 +17,7 @@ export default async function addPost(req, res) {
       imageUrl: urlLink,
     });
     return res.status(200).json({
-      success: true,
+      good: true,
       message: "Post created successfully",
     });
   } catch (err) {
