@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get("/me", verifyUser, me);
 router.post("/post", verifyUser, addPost);
-router.get("/posts", verifyUser, getPost);
+router.get("/posts", verifyUser, getPosts);
 router.get("/orgs", verifyUser, getAllOrgs);
 router.get("/sponsors", verifyUser, getSponsors);
 
