@@ -8,6 +8,7 @@ import getSponsors from "./getSponsors.js";
 import getAdoptions from "./getAdoptions.js";
 import verifyOrg from "../../middlewares/verifyOrg.js";
 import addSponsorPost from "./addSponsorPost.js";
+import postAdoption from "./postAdoption.js";
 
 const userRouter = express.Router();
 
@@ -18,5 +19,6 @@ userRouter.post("/sponsor", verifyOrg, addSponsorPost);
 userRouter.post("/post", verifyUser, addPost);
 userRouter.get("/orgs", verifyUser, getAllOrgs);
 userRouter.get("/adopt", verifyUser, getAdoptions);
+userRouter.post("/adopt", verifyUser, postAdoption);
 
 export default userRouter;

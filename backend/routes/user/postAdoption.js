@@ -1,7 +1,6 @@
 import AnimalPost from "../../models/animalPost.js";
-import uploadBase64ToCloudinary from "../../utils/imageUpload.js";
 
-const addSponsorPost = async (req, res) => {
+const postAdoption = async (req, res) => {
   try {
     const { name, age, gender, image, description, animalType } = req.body;
     const base64Image = image?.split(",")[1];
@@ -17,16 +16,15 @@ const addSponsorPost = async (req, res) => {
       age,
       gender,
       animalType,
-      monthlyBudget,
       image: urlLink,
       description,
-      postType: { adoption: false, sponsor: true },
+      postType: { adoption: true, sponsor: false },
       userId: req.userId,
     });
     const savedPost = await sponsorPost.save();
 
     return res.status(200).json({
-      message: " Sponsor Post added successfully",
+      message: " Adoption Post added successfully",
       good: true,
     });
   } catch (error) {
@@ -38,4 +36,4 @@ const addSponsorPost = async (req, res) => {
   }
 };
 
-export default addSponsorPost;
+export default postAdoption;

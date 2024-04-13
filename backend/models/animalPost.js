@@ -7,6 +7,12 @@ const animalPostSchema = new mongoose.Schema(
     gender: { type: String, required: true },
     image: { type: String },
     description: { type: String, required: true },
+    animalType: {
+      type: String,
+      enum: ["Dog", "Cat", "Cow", "Bird", "Horse"],
+      required: true,
+    },
+    monthlyBudget: { type: Number },
     postType: {
       type: {
         adoption: Boolean,
