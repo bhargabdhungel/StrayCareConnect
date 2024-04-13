@@ -22,6 +22,7 @@ export default async function fetchData({ method, url, token, body, params }) {
     if (response.data.message) toast.success(response.data.message);
     return response.data || "Something went wrong";
   } catch (error) {
+    console.log("error in fetch data", error);
     if (error.response.data.save) {
       for (const key in error.response.data.save) {
         localStorage.setItem(key, error.response.data.save[key]);

@@ -1,10 +1,10 @@
-import express from "express";
-import signup from "./signup.js";
-import login from "./login.js";
+// import express from "express";
+// import signup from "./signup.js";
+// import login from "./login.js";
 
-const router = express.Router();
+// const router = express.Router();
 
-router.post("/signup", signup);
-router.post("/login", login);
+// router.post("/signup", signup);
+// router.post("/login", login);
 
-export default router;
+// export default router;
