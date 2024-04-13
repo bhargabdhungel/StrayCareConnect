@@ -8,6 +8,7 @@ import Adopt from "./Adopt";
 import Settings from "./Settings";
 import { useRecoilState } from "recoil";
 import { atTheBottomAtom } from "../store";
+import AddPost from "./AddPost";
 
 export default function Pages() {
   const [bottom, setBottom] = useRecoilState(atTheBottomAtom);
@@ -34,6 +35,7 @@ export default function Pages() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/addpost" element={<AddPost />} />
       </Routes>
     </div>
   );

@@ -14,7 +14,8 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 // routes
 app.use("/auth", auth);

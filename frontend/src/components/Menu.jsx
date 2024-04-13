@@ -8,6 +8,7 @@ export default function Menu() {
     "Settings",
     "Sponsor",
     "Donate",
+    "addPost",
     "Adopt",
   ];
   const navigate = useNavigate();
