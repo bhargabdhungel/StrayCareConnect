@@ -6,6 +6,7 @@ import auth from "./routes/auth/index.js";
 import user from "./routes/user/index.js";
 import org from "./routes/org/index.js";
 import orgAuth from "./routes/orgauth/index.js";
+import bodyParser from "body-parser";
 
 dotenv.config();
 const port = process.env.PORT || 3000;
