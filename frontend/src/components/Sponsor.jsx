@@ -40,7 +40,7 @@ export default function Sponsor() {
         return (
           <div key={index} className="bg-white p-4">
             <p>{index}</p>
-            <p>{post.userId.username}</p>
+            <p>owner={post.userId.username}</p>
             <p>{post.name}</p>
             <p>{post.age} years</p>
             <p>{post.gender} </p>
