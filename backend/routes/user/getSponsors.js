@@ -10,7 +10,7 @@ const getSponsorsPosts = async (req, res) => {
       .skip((page - 1) * 10)
       .limit(10)
       .populate("userId", "username");
-    
+
     return res.status(200).json({
       message: "Fetched sponsor posts successfully",
       good: true,
