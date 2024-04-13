@@ -1,13 +1,22 @@
 import mongoose from "mongoose";
 
-const adoptSchema = new mongoose.Schema(
+const animalPostSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     age: { type: Number, required: true },
     gender: { type: String, required: true },
-    breed: { type: String, required: true },
     image: { type: String, required: true },
     description: { type: String, required: true },
+    postType: {
+      type: {
+        adoption: Boolean,
+        sponsor: Boolean,
+      },
+      default: {
+        adoption: true,
+        sponsor: false,
+      },
+    },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   {
@@ -15,4 +24,4 @@ const adoptSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model("Adopt", adoptSchema);
+export default mongoose.model("AnimalPost", animalPostSchema);

@@ -10,6 +10,7 @@ export default function Menu() {
     "Donate",
     "addPost",
     "Adopt",
+    "orgs",
   ];
   const navigate = useNavigate();
   return (
