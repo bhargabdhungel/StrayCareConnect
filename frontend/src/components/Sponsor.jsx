@@ -42,8 +42,10 @@ export default function Sponsor() {
             <p>{index}</p>
             <p>{post.userId.username}</p>
             <p>{post.name}</p>
-            <p>{post.likes} Likes</p>
-            <p>{post.comments?.length} Comments</p>
+            <p>{post.age} years</p>
+            <p>{post.gender} </p>
+            <p>{post.description}</p>
+            <p>{post.monthlyBudget} rupia dedo please</p>
             <img src={post.image} alt="image" className="w-64" />
             <p>
               {time}, {date}

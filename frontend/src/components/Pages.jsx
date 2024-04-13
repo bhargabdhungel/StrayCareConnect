@@ -37,7 +37,7 @@ export default function Pages() {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/addpost" element={<AddPost />} />
-        <Route path="/addSponsorPost" element={<AddSponsorPost/>} />
+        <Route path="/addSponsorPost" element={<AddSponsorPost />} />
       </Routes>
     </div>
   );

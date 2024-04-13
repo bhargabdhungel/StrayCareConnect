@@ -2,27 +2,33 @@
 import toast from "react-hot-toast";
 import fetchData from "../helpers/fetchData";
 import { useState } from "react";
-import { TextField ,InputLabel,Select,MenuItem,FormControl} from "@mui/material";
+import {
+  TextField,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
 // import {InputLabel } from "@mui/material"
 import NumberInputBasic from "./NumberInput";
 
 export default function AddSponsorPost() {
-      const menuItems = [];
+  const menuItems = [];
 
-      for (let i = 1; i <= 10; i++) {
-        menuItems.push(
-          <MenuItem key={i} value={i}>
-            {i} year
-          </MenuItem>
-        );
-      }
+  for (let i = 1; i <= 10; i++) {
+    menuItems.push(
+      <MenuItem key={i} value={i}>
+        {i} year
+      </MenuItem>
+    );
+  }
   const [image, setImage] = useState(null);
-    const [description, setDescription] = useState("");
-    const [Name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [gender, setGender] = useState("")
-    const [animalType, setAnimalType] = useState("")
-    const [monthlyBudget, setBudget] = useState(0);
+  const [description, setDescription] = useState("");
+  const [Name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [animalType, setAnimalType] = useState("");
+  const [monthlyBudget, setMonthlyBudget] = useState(0);
   const [loading, setLoading] = useState(false);
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
@@ -75,11 +81,14 @@ export default function AddSponsorPost() {
           </Select>
         </FormControl>
 
-        <NumberInputBasic
-          aria-label="Demo number input"
-          placeholder="Type a number…"
+        <TextField
+          label="Monthly Budget"
+          type="number"
           value={monthlyBudget}
-          onChange={(event, val) => setBudget(val)}
+          onChange={(e) => setMonthlyBudget(e.target.value)}
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
         <br />
 
