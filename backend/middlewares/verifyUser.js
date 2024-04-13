@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 export default async function verifyUser(req, res, next) {
   try {
     const token = req.headers.authorization;
-    
     if (!token) {
       console.log(token);
       return res.status(401).send({

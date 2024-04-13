@@ -27,8 +27,8 @@ export default async function verifyOrg(req, res, next) {
         message: "Unauthorized",
       });
     }
-    const org = await User.findById(req.userId);
-    if (!org.userType.org) {
+    const admin = await User.findById(req.userId);
+    if (!admin.userType.admin) {
       return res.status(401).send({
         good: false,
         message: "You are not an organization",

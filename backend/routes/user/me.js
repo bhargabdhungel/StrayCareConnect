@@ -18,6 +18,8 @@ export default async function me(req, res) {
         email: user.email,
         firstName: user.firstName,
         lastName: user.lastName,
+        org: user.userType.org,
+        admin: user.userType.admin,
       },
     });
   } catch (err) {
