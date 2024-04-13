@@ -29,21 +29,33 @@ import Button from "../components/Button";
 export default function Landing() {
   return (
     <div>
-      <header className="bg-gray-100 custom-text-secondary py-4 px-6 flex justify-between items-center">
+      <header className="bg-white custom-text-secondary py-4 px-6 flex justify-between items-center">
         <div className="flex items-center space-x-4 flex-grow">
-          <Button primary>Sponsor</Button>
+          <a href="/home/sponsor">
+            <Button primary>Sponsor</Button>
+          </a>
         </div>
         <div className="flex items-center space-x-4 flex-grow">
-          <span className="text-xl font-bold text-custom-text-secondary ">
+          <span className="text-2xl font-bold text-custom-text-secondary flex">
+            <img
+              src="/images/logo4.jpeg"
+              alt="kela"
+              width="40px"
+              className="px-0.5 "
+            />
             StrayCare
-            <span className="text-xl font-bold text-custom-text-tertiary ">
+            <span className="text-2xl font-bold text-custom-text-tertiary ">
               Connect
             </span>
           </span>
         </div>
         <div className="flex items-center space-x-4">
-          <Button secondary>Login</Button>
-          <Button secondary>Signup</Button>
+          <a href="/login">
+            <Button secondary>Login</Button>
+          </a>
+          <a href="/signup">
+            <Button secondary>Signup</Button>
+          </a>
         </div>
       </header>
       <img
@@ -70,7 +82,9 @@ export default function Landing() {
             safety, dignity, and affection for every pet remains an ongoing and
             substantial endeavor for us all.
           </p>
-          <Button secondary>Find out more</Button>
+          <a href="https://github.com/bhargabdhungel/hackfest24">
+            <Button secondary>Find out more</Button>
+          </a>
         </div>
       </section>
       <div>
@@ -90,7 +104,10 @@ export default function Landing() {
               </h1>
               <br />
               <br />
-              <Button darkButton>Boop for info</Button>
+              <a href="/home/adopt">
+                <Button darkButton>Boop for info</Button>
+              </a>
+
               <img
                 src="https://d339b5nop2tkmp.cloudfront.net/packs/static/assets/images/homepage/group1-d0399b791ea201ed0654.svg"
                 width="150px"
@@ -104,7 +121,10 @@ export default function Landing() {
               <h1 className="text-custom-bg-dark-primary text-2xl md:text-3xl font-bold mb-4">
                 Donations
               </h1>
-              <Button darkButton>Boop for info</Button>
+              <a href="/home/donate">
+                <Button darkButton>Boop for info</Button>
+              </a>
+
               <img
                 src="https://d339b5nop2tkmp.cloudfront.net/packs/static/assets/images/homepage/group2-48a4341e048cbf483bbd.svg"
                 alt=""
@@ -118,7 +138,9 @@ export default function Landing() {
               </h1>
               <br />
               <br />
-              <Button darkButton>Boop for info</Button>
+              <a href="/home/sponsor">
+                <Button darkButton>Boop for info</Button>
+              </a>
             </div>
           </div>
         </div>
@@ -219,7 +241,9 @@ export default function Landing() {
         </div>
       </div>
       <div className="bg-custom-bg-dark-primary text-custom-bg-primary p-7">
-        <div className="mx-40">Copyright © 2024 StrayCare Connect All rights reserved</div>
+        <div className="mx-40">
+          Copyright © 2024 StrayCare Connect All rights reserved
+        </div>
       </div>
     </div>
   );
