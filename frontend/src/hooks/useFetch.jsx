@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import fetchData from "../helpers/fetchData";
 import toast from "react-hot-toast";
 
-export default function useFetch(
+export default function useFetch({
   run = true,
   method,
   params = null,
   path,
-  body = null
-) {
+  body = null,
+}) {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function useFetch(
           url: import.meta.env.VITE_SITELINK + path,
           token: localStorage.getItem("token"),
           body,
-          params,
+          params: params ? { page: params } : null,
         });
 
         setResponse(resp);
@@ -31,6 +31,6 @@ export default function useFetch(
       }
     };
     if (run) getData();
-  }, [path, method, run, body, params]);
+  }, [body, method, params, path, run]);
   return { loading, response };
 }

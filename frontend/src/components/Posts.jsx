@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import fetchData from "../helpers/fetchData";
-import toast from "react-hot-toast";
 import { useRecoilValue } from "recoil";
 import { atTheBottomAtom } from "../store";
+import useFetch from "../hooks/useFetch";
 
 export default function Posts() {
   const [data, setData] = useState([]);
@@ -15,22 +14,15 @@ export default function Posts() {
     }
   }, [bottom]);
 
+  const { loading, response } = useFetch({
+    method: "GET",
+    path: "/user/posts",
+    params: page,
+  });
+
   useEffect(() => {
-    const getData = async (page) => {
-      try {
-        const response = await fetchData({
-          method: "GET",
-          url: import.meta.env.VITE_SITELINK + "/user/posts",
-          token: localStorage.getItem("token"),
-          params: { page },
-        });
-        setData((prevData) => [...prevData, ...response.data]);
-      } catch (err) {
-        toast.error("Check Internet Connection");
-      }
-    };
-    getData(page);
-  }, [page]);
+    if (response) setData((prevData) => [...prevData, ...response.data]);
+  }, [response]);
 
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
@@ -54,6 +46,10 @@ export default function Posts() {
           </div>
         );
       })}
+      <div>
+        {loading && <p>Loading...</p>}
+        {!loading && <p>End</p>}
+      </div>
     </div>
   );
 }
