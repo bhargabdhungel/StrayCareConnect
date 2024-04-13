@@ -27,7 +27,6 @@ export default function Posts() {
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
       {data.map((post, index) => {
-        console.log(post);
         const uploadDate = new Date(post.createdAt);
         const time = uploadDate.toLocaleTimeString();
         const date = uploadDate.toLocaleDateString();
