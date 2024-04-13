@@ -2,7 +2,7 @@ import User from "../../models/user.js";
 
 export default async function me(req, res) {
   try {
-    const user = await User.findById(req.userId);
+    const user = await User.findById(req.userId).populate(["animalPosts", "likedPosts"]);
     if (!user) {
       return res.status(404).send({
         good: false,
@@ -20,6 +20,11 @@ export default async function me(req, res) {
         lastName: user.lastName,
         org: user.userType.org,
         admin: user.userType.admin,
+        followers: user.followers,
+        following: user.following,
+        animalPosts: user.animalPosts,
+        likedPosts: user.likedPosts,
+
       },
     });
   } catch (err) {

@@ -15,6 +15,7 @@ export default function Profile() {
   }, [response]);
 
   if (loading) return <p>Loading...</p>;
+  console.log(ProfileData);
   return (
     <div>
       <h1>{ProfileData?.username}</h1>
