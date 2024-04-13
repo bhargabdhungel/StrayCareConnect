@@ -1,26 +1,22 @@
-import OrgUser from "../../models/orgUser.js";
+// import OrgUser from "../../models/orgUser.js";
+import User from "../../models/user.js";
 
-export default async function getAllOrgs (req, res) {
+const getAllOrgs = async (req,res) => {
     try {
-        const allOrgs = await OrgUser.find();
-
-        if(!allOrgs) {
-            return res.status(400).send({
-                good: false,
-                message: "Error fetching data, please try again later!",
-            })
-        }
-
+        const orgUsers = await User.find({ "userType.org": true });
         return res.status(200).json({
-            good: true,
-            message: "All your organizations",
-            data: allOrgs
+            message: "Fetched Orgs Successfully",
+            orgUsers,
+            good:true
         })
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send({
-            good: false,
-            message: "Internal server error"
-        })
-    }
-}
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+    });
+  }
+};
+
+export default getAllOrgs;

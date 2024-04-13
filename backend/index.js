@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./database/index.js";
 import auth from "./routes/auth/index.js";
-// import user from "./routes/user/index.js";
+import user from "./routes/user/index.js";
 // import org from "./routes/org/index.js";
 // import orgAuth from "./routes/orgauth/index.js";
 
@@ -22,7 +22,7 @@ app.use(
 
 // routes
 app.use("/auth", auth);
-// app.use("/user", user);
+app.use("/user", user);
 // app.use("/org", org);
 // app.use("/orgAuth", orgAuth);
 

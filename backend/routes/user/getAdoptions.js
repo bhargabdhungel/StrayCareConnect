@@ -1,12 +1,12 @@
 import AnimalPost from "../../models/animalPost.js";
 
-const getSponsorsPosts = async (req,res) => {
+const getAdoptions = async (req, res) => {
   try {
     const sponsorAnimalPosts = await AnimalPost.find({
-      "postType.sponsor": true,
+      "postType.adoption": true,
     });
     return res.status(200).json({
-      message: "Fetched sponsor posts successfully",
+      message: "Fetched Adoption posts successfully",
       good: true,
       sponsorAnimalPosts,
     });
@@ -19,4 +19,4 @@ const getSponsorsPosts = async (req,res) => {
   }
 };
 
-export default getSponsorsPosts;
+export default getAdoptions;

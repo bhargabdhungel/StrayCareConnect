@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user";
+import User from "../models/user.js";
 
 export default async function verifyOrg(req, res, next) {
   try {
@@ -28,6 +28,7 @@ export default async function verifyOrg(req, res, next) {
       });
     }
     const org = await User.findById(req.userId);
+    // console.log(org);
     if (!org.userType.org) {
       return res.status(401).send({
         good: false,

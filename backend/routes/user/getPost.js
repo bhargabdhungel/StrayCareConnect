@@ -1,4 +1,5 @@
 import Post from "../../models/post.js";
+
 export default async function getPosts(req, res) {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -8,7 +9,10 @@ export default async function getPosts(req, res) {
       .limit(10)
       .populate("userId", "username");
 
-    return res.status(200).json({ data: post, good: true });
+    return res.status(200).json({
+      data: post,
+      good: true,
+    });
   } catch (err) {
     return res.status(500).send({
       message: "Internal Server Error",

@@ -5,13 +5,14 @@ export default async function addPost(req, res) {
   try {
     const { content } = req.body;
     const base64Image = req.body.image?.split(",")[1];
-
+    
     const filename = `postImage/${req.userId}.jpeg`;
 
     var urlLink;
     if (base64Image !== undefined) {
       urlLink = await uploadBase64ToCloudinary(base64Image, filename);
     }
+    console.log(urlLink);
     await Post.create({
       userId: req.userId,
       content,
