@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { atTheBottomAtom } from "../store";
 import useFetch from "../hooks/useFetch";
+import Button from "./Button";
 
 export default function Sponsor() {
   const [data, setData] = useState([]);
@@ -27,6 +28,10 @@ export default function Sponsor() {
 
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
+      <a href="/home/addSponsorPost">
+        <Button primary>kELA LELO</Button>
+      </a>
+
       {data.map((post, index) => {
         const uploadDate = new Date(post.createdAt);
         const time = uploadDate.toLocaleTimeString();
@@ -36,10 +41,10 @@ export default function Sponsor() {
           <div key={index} className="bg-white p-4">
             <p>{index}</p>
             <p>{post.userId.username}</p>
-            <p>{post.content}</p>
+            <p>{post.name}</p>
             <p>{post.likes} Likes</p>
             <p>{post.comments?.length} Comments</p>
-            <img src={post.imageUrl} alt="image" className="w-64" />
+            <img src={post.image} alt="image" className="w-64" />
             <p>
               {time}, {date}
             </p>

@@ -3,7 +3,8 @@ import uploadBase64ToCloudinary from "../../utils/imageUpload.js";
 
 const addSponsorPost = async (req, res) => {
   try {
-    const { name, age, gender, image, description, animalType } = req.body;
+    const { Name, age, gender, image, description, animalType, monthlyBudget } =
+      req.body;
     const base64Image = image?.split(",")[1];
 
     const filename = `sponsorImage/${req.userId}.jpeg`;
@@ -13,13 +14,15 @@ const addSponsorPost = async (req, res) => {
       urlLink = await uploadBase64ToCloudinary(base64Image, filename);
     }
     const sponsorPost = new AnimalPost({
-      name,
+      name: Name,
       age,
       gender,
       animalType,
       monthlyBudget,
       image: urlLink,
       description,
+      animalType,
+      monthlyBudget,
       postType: { adoption: false, sponsor: true },
       userId: req.userId,
     });

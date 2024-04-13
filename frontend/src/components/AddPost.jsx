@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import toast from "react-hot-toast";
 import fetchData from "../helpers/fetchData";
 import { useState } from "react";
