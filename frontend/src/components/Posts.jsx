@@ -39,7 +39,7 @@ export default function Posts() {
             <p>{post.content}</p>
             <p>{post.likes} Likes</p>
             <p>{post.comments?.length} Comments</p>
-            <img src={post.imageUrl} alt="image" />
+            <img src={post.imageUrl} alt="image" className="w-64" />
             <p>
               {time}, {date}
             </p>

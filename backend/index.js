@@ -6,7 +6,6 @@ import auth from "./routes/auth/index.js";
 import user from "./routes/user/index.js";
 import org from "./routes/org/index.js";
 import orgAuth from "./routes/orgauth/index.js";
-import bodyParser from "body-parser";
 
 dotenv.config();
 const port = process.env.PORT || 3000;
@@ -15,8 +14,11 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(
+  express.json({
+    limit: "50mb",
+  })
+);
 
 // routes
 app.use("/auth", auth);

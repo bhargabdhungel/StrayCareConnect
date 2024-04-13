@@ -4,7 +4,8 @@ import uploadBase64ToCloudinary from "../../utils/imageUpload.js";
 export default async function addPost(req, res) {
   try {
     const { content } = req.body;
-    const base64Image = req.body.image;
+    const base64Image = req.body.image?.split(",")[1];
+
     const filename = `postImage/${req.userId}.jpeg`;
 
     var urlLink;
