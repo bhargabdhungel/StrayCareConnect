@@ -1,7 +1,6 @@
 import AnimalPost from "../../models/animalPost.js";
 import uploadBase64ToCloudinary from "../../utils/imageUpload.js";
 
-
 const postAdoption = async (req, res) => {
   try {
     const { Name, age, gender, image, description, animalType } = req.body;
@@ -14,7 +13,7 @@ const postAdoption = async (req, res) => {
       urlLink = await uploadBase64ToCloudinary(base64Image, filename);
     }
     const sponsorPost = new AnimalPost({
-      name:Name,
+      name: Name,
       age,
       gender,
       animalType,
@@ -23,7 +22,7 @@ const postAdoption = async (req, res) => {
       postType: { adoption: true, sponsor: false },
       userId: req.userId,
     });
-    const savedPost = await sponsorPost.save();
+    await sponsorPost.save();
 
     return res.status(200).json({
       message: " Adoption Post added successfully",
