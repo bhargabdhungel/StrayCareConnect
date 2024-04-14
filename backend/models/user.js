@@ -17,7 +17,7 @@ const userSchema = new Schema({
   image: { type: String },
   address: { type: String },
   goal: { type: String },
-  contactNo:{type:Number},
+  contactNo: { type: Number },
   userType: {
     type: {
       user: Boolean,
