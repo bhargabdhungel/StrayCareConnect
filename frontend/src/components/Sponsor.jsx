@@ -26,11 +26,14 @@ export default function Sponsor() {
     if (response) setData((prevData) => [...prevData, ...response.data]);
   }, [response]);
 
+  const isOrg = localStorage.getItem("isOrg");
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
-      <a href="/home/addSponsorPost">
-        <Button primary>kELA LELO</Button>
-      </a>
+      {isOrg && (
+        <a href="/home/addSponsorPost">
+          <Button primary>Add animal for sponsorship</Button>
+        </a>
+      )}
 
       {data.map((post, index) => {
         const uploadDate = new Date(post.createdAt);
