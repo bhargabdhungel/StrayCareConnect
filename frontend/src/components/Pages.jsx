@@ -11,7 +11,6 @@ import { atTheBottomAtom } from "../store";
 import AddPost from "./AddPost";
 import AddSponsorPost from "./AddSponsorPost";
 import AddAdoptionPost from "./AddAdoptionPost";
-import Orgs from "./Orgs";
 import ApplyForMembership from "./ApplyForMembership";
 
 export default function Pages() {
@@ -40,7 +39,6 @@ export default function Pages() {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/addpost" element={<AddPost />} />
-        <Route path="/orgs" element={<Orgs />} />
         <Route path="/addSponsorPost" element={<AddSponsorPost />} />
         <Route path="/addAdoptionPost" element={<AddAdoptionPost />} />
         <Route path="/applyForMembership" element={<ApplyForMembership />} />
