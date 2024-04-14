@@ -29,7 +29,6 @@ io.on("connection", (socket) => {
   socket.on("message", (msg) => {
     // broadcast to all clients
     socket.broadcast.emit("message", msg);
-    // io.emit("message", msg);
   });
 
   // socket.on("chat message", (msg) => {
