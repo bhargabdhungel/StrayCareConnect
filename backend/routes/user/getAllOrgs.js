@@ -6,7 +6,7 @@ const getAllOrgs = async (req,res) => {
         const orgUsers = await User.find({ "userType.org": true });
         return res.status(200).json({
             message: "Fetched Orgs Successfully",
-            orgUsers,
+            data:orgUsers,
             good:true
         })
 

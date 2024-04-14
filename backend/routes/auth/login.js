@@ -34,7 +34,7 @@ export default async function login(req, res) {
       good: true,
       message: "User logged in successfully",
       path: "home",
-      save: { token, username: user.username, email: user.email },
+      save: { token, username: user.username, email: user.email,isAdmin:user.userType.admin,isOrg:user.userType.org },
     });
   } catch (err) {
     console.log(err);
