@@ -20,3 +20,14 @@ export const atTheBottomAtom = atom({
   key: "atTheBottomAtom",
   default: false,
 });
+
+
+export const postIdAtom = atom({
+  key: "postIdAtom",
+  default: null,
+});
+
+export const postTypeAtom = atom({
+  key: "postTypeAtom",
+  default: null,
+});

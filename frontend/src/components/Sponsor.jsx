@@ -1,13 +1,19 @@
+/* eslint-disable  */
+
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { atTheBottomAtom } from "../store";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { atTheBottomAtom, postTypeAtom, postIdAtom } from "../store";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import Button from "./Button";
 
 export default function Sponsor() {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const bottom = useRecoilValue(atTheBottomAtom);
+  const setSponsorId = useSetRecoilState(postIdAtom);
+  const setpostType = useSetRecoilState(postTypeAtom);
 
   useEffect(() => {
     if (bottom) {
@@ -41,7 +47,15 @@ export default function Sponsor() {
         const date = uploadDate.toLocaleDateString();
 
         return (
-          <div key={index} className="bg-white p-4">
+          <div key={index} className="bg-white p-4"
+            onClick={() => {
+              const id = post._id;
+              setSponsorId(id);
+              setpostType("Sponsor");
+              navigate("/home/view");
+              
+            }}
+          >
             <p>{index}</p>
             <p>owner={post.userId.username}</p>
             <p>{post.name}</p>

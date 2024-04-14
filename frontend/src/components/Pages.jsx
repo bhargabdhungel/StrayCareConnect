@@ -12,6 +12,7 @@ import AddPost from "./AddPost";
 import AddSponsorPost from "./AddSponsorPost";
 import AddAdoptionPost from "./AddAdoptionPost";
 import ApplyForMembership from "./ApplyForMembership";
+import View from "./View";
 
 export default function Pages() {
   const [bottom, setBottom] = useRecoilState(atTheBottomAtom);
@@ -39,6 +40,7 @@ export default function Pages() {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/addpost" element={<AddPost />} />
+        <Route path="/view" element={<View />} />
         <Route path="/addSponsorPost" element={<AddSponsorPost />} />
         <Route path="/addAdoptionPost" element={<AddAdoptionPost />} />
         <Route path="/applyForMembership" element={<ApplyForMembership />} />

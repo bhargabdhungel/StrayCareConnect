@@ -10,6 +10,7 @@ import verifyOrg from "../../middlewares/verifyOrg.js";
 import addSponsorPost from "./addSponsorPost.js";
 import postAdoption from "./postAdoption.js";
 import applyForMembership from "./applyForMembership.js";
+import getPostById from "./getPostById.js";
 
 const userRouter = express.Router();
 
@@ -21,6 +22,7 @@ userRouter.post("/post", verifyUser, addPost);
 userRouter.get("/orgs", verifyUser, getAllOrgs);
 userRouter.get("/adopt", verifyUser, getAdoptions);
 userRouter.post("/adopt", verifyUser, postAdoption);
+userRouter.get("/post", verifyUser, getPostById);
 userRouter.post("/applyForMembership", verifyUser, applyForMembership);
 
 export default userRouter;
