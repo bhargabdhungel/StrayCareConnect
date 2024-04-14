@@ -31,7 +31,7 @@ export default function Orgs() {
   return (
     <div className="bg-gray-300 w-full h-fit gap-1 flex flex-col">
       {!isOrg && (
-        <a href="/home/applyForMemberShip">
+        <a href="/home/applyForMembership">
           <Button primary>Apply as Organization</Button>
         </a>
       )}

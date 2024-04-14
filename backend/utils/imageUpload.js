@@ -24,7 +24,7 @@ async function uploadBase64ToCloudinary(base64String, filename) {
 
     const formData = new FormData();
     formData.append("file", blob, filename);
-    formData.append("upload_preset", "mbptyl5f"); 
+    formData.append("upload_preset", "mbptyl5f");
 
     // Upload to Cloudinary
     const response = await axios.post(

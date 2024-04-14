@@ -14,6 +14,10 @@ const userSchema = new Schema({
   following: [{ type: Schema.Types.ObjectId, ref: "User" }],
   countOfFollowers: { type: Number, default: 0 },
   countOfFollowing: { type: Number, default: 0 },
+  image: { type: String },
+  address: { type: String },
+  goal: { type: String },
+  contactNo:{type:Number},
   userType: {
     type: {
       user: Boolean,
