@@ -35,7 +35,7 @@ const addSponsorPost = async (req, res) => {
     );
 
     return res.status(200).json({
-      message: " Sponsor Post added successfully",
+      message: "Sponsor Post added successfully",
       good: true,
     });
   } catch (error) {

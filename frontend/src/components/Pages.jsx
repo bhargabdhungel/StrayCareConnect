@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import Chats from "./Chat";
 import Sponsor from "./Sponsor";
 import Posts from "./Posts";
 import Profile from "./Profile";
 import Donate from "./Donate";
 import Adopt from "./Adopt";
 import Settings from "./Settings";
+import Chat from "../socket/Chat";
 import { useRecoilState } from "recoil";
 import { atTheBottomAtom } from "../store";
 import AddPost from "./AddPost";
@@ -32,7 +32,7 @@ export default function Pages() {
     >
       <Routes>
         <Route path="/" element={<Posts />} />
-        <Route path="/chat" element={<Chats />} />
+        <Route path="/chat" element={<Chat />} />
         <Route path="/sponsor" element={<Sponsor />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/donate" element={<Donate />} />
